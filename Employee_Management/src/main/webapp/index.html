@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Employee Registration</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 700px; margin: auto; }
+    label { display:block; margin-bottom:6px; font-weight:600; }
+    input, select, textarea { width:100%; padding:8px; box-sizing:border-box; margin-bottom:12px; }
+    textarea { resize: vertical; min-height:80px; }
+    .btn { padding:10px 16px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <h2>Employee Registration Form</h2>
+
+  <form action="submit" method="post">
+    <label for="id">Employee ID</label>
+    <input id="id" name="id" type="number" min="1" placeholder="Enter ID ">
+
+    <label for="full_name">Full Name *</label>
+    <input id="full_name" name="name" type="text" maxlength="100" required placeholder="Enter Name ">
+
+    <label for="dob">Date of Birth</label>
+    <input id="dob" name="dob" type="date">
+
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender">
+      <option value="">-- Select --</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" maxlength="100" placeholder="e g abc@gmail.com">
+
+    <label for="phone_number">Phone Number</label>
+    <input id="phone_number" name="phone_number" type="tel" maxlength="15" pattern="[0-9+ ]{10,}" placeholder="e.g. 9876543210">
+
+    <label for="address">Address</label>
+    <textarea id="address" name="address" maxlength="255" placeholder="Street, City, State, Zip"></textarea>
+
+    <label for="department">Department</label>
+    <input id="department" name="department" type="text" maxlength="50">
+
+    <label for="designation">Designation</label>
+    <input id="designation" name="designation" type="text" maxlength="50">
+
+    <label for="joining_date">Joining Date</label>
+    <input id="joining_date" name="joining_date" type="date">
+
+    <label for="salary">Salary</label>
+    <input id="salary" name="salary" type="number" min="0" step="1" placeholder="Enter salary">
+
+    <label for="aadhar_number">Aadhar Number</label>
+    <input id="aadhar_number" name="aadhar_number" type="text" maxlength="20" placeholder="12-digit Aadhar number">
+
+    <button type="submit" class="btn">Submit</button>
+    <button type="reset" class="btn" style="margin-left:8px;">Reset</button>
+  </form>
+</body>
+</html>
