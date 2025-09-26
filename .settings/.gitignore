@@ -1,0 +1,22 @@
+# ===== Eclipse IDE files =====
+.classpath
+.project
+/.settings/
+
+# ===== Compiled Java files =====
+/bin/
+*.class
+
+# ===== Logs / temporary files =====
+*.log
+*.tmp
+*.bak
+
+# ===== OS-specific files =====
+.DS_Store
+Thumbs.db
+
+# ===== Web / deployment files =====
+target/
+*.war
+*.ear
