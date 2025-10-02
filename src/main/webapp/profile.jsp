@@ -19,89 +19,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Employee Profile</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4f6f9;
-        margin: 0;
-        padding: 0;
-    }
-
-    .profile-container {
-        max-width: 600px;
-        margin: 50px auto;
-        background: #fff;
-        border-radius: 12px;
-        padding: 30px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    .profile-header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .profile-header h1 {
-        color: #2563eb;
-        font-size: 28px;
-        margin: 0;
-    }
-
-    .profile-details {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .profile-details th, .profile-details td {
-        padding: 12px 20px;
-        text-align: left;
-        font-size: 18px;
-    }
-
-    .profile-details th {
-        background: #4CAF50;
-        color: white;
-        width: 40%;
-    }
-
-    .profile-details tr:nth-child(even) {
-        background: #f9f9f9;
-    }
-
-    .profile-details tr:nth-child(odd) {
-        background: #fff;
-    }
-
-    .logout-btn {
-        display: block;
-        width: 100%;
-        margin-top: 20px;
-        padding: 12px;
-        background: #007bff;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .logout-btn:hover {
-        background: #0056b3;
-    }
-
-    /* Responsive */
-    @media(max-width: 480px){
-        .profile-container {
-            width: 90%;
-            padding: 20px;
-        }
-        .profile-details th, .profile-details td {
-            font-size: 16px;
-            padding: 10px;
-        }
-    }
-</style>
+<link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
 
@@ -111,13 +29,25 @@
     </div>
 
     <table class="profile-details">
+      <tr>
+            <th>Employee ID</th>
+            <td>${sessionScope.empId}</td>
+        </tr>
         <tr>
             <th>Employee Name</th>
             <td>${sessionScope.empName}</td>
         </tr>
         <tr>
+            <th>Date of Birth</th>
+            <td>${sessionScope.dob}</td>
+        </tr>
+        <tr>
             <th>Department</th>
             <td>${sessionScope.department}</td>
+        </tr>
+        <tr>
+            <th>Designation</th>
+            <td>${sessionScope.designation}</td>
         </tr>
         <tr>
             <th>Email</th>
@@ -126,6 +56,26 @@
         <tr>
             <th>Mobile Number</th>
             <td>${sessionScope.mobNo}</td>
+        </tr>
+          <tr>
+            <th>Aadhar Number</th>
+            <td>${sessionScope.aadharNO}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>${sessionScope.address}</td>
+        </tr>
+        <tr>
+            <th>Male</th>
+            <td>${sessionScope.empGender}</td>
+        </tr>
+          <tr>
+            <th>Joining Date</th>
+            <td>${sessionScope.joiningDate}</td>
+        </tr>
+        <tr>
+            <th>Salary</th>
+            <td>${sessionScope.salary}</td>
         </tr>
     </table>
 

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/submit")
-
 
 public class register extends HttpServlet {
 
@@ -24,42 +22,41 @@ public class register extends HttpServlet {
 //		int id1 = Integer.parseInt(id);
 //		
 		String name = request.getParameter("name");
-		
+
 		String dob1 = request.getParameter("dob");
 		Date dob = null;
 		if (dob1 != null && !dob1.isEmpty()) {
-		    dob = Date.valueOf(dob1);  // Only parse when value is present
+			dob = Date.valueOf(dob1); // Only parse when value is present
 		}
 
-		
 		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
-		
+
 		String phoneNo1 = request.getParameter("phone_number");
 		long phoneNo = Long.parseLong(phoneNo1);
-		
+
 		String address = request.getParameter("address");
 		String department = request.getParameter("department");
 		String designation = request.getParameter("designation");
-		
+
 		String joining_date1 = request.getParameter("joining_date");
 		Date joining_date = Date.valueOf(joining_date1);
-		
+
 		String salary1 = request.getParameter("salary");
 		long salary = Integer.parseInt(salary1);
-		
+
 		String aadhar_number = request.getParameter("aadhar_number");
-		String password=request.getParameter("password");
+		String password = request.getParameter("password");
 
 		PrintWriter out = response.getWriter();
-		
-		
+
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/batch409", "root", "Mahesh@123");
-			PreparedStatement ps = c.prepareStatement("insert into Employee_Data(full_name,dob,gender,email,phone_number,address,department,designation,joining_date,salary,aadhar_number,password)values(?,?,?,?,?,?,?,?,?,?,?,?)");
-			
-			//ps.setInt(1, id1);
+			PreparedStatement ps = c.prepareStatement(
+					"insert into Employee_Data(full_name,dob,gender,email,phone_number,address,department,designation,joining_date,salary,aadhar_number,password)values(?,?,?,?,?,?,?,?,?,?,?,?)");
+
+			// ps.setInt(1, id1);
 			ps.setString(1, name);
 			ps.setDate(2, dob);
 			ps.setString(3, gender);
@@ -72,17 +69,20 @@ public class register extends HttpServlet {
 			ps.setLong(10, salary);
 			ps.setString(11, aadhar_number);
 			ps.setString(12, password);
-		
+
 			int check = ps.executeUpdate();
 
 			if (check > 0) {
-				out.println("<h1 style='color:green'>" + "Register Succcessfully...!" + "</h1>");
-				response.sendRedirect("login.html");
+				out.println("<script type='text/javascript'>");
+				out.println("alert('Register Successfully..!');"); // show alert
+				out.println("window.location='login.html';"); // redirect after OK
+				out.println("</script>");
 			} else {
-				out.print("<h1 style='backgroundcolor:red'>" + "Data is Not inserted..." + "</h1>");
+				out.println("<script type='text/javascript'>");
+				out.println("alert('Data is not inserted...');"); // optional alert for failure
+				out.println("window.location='register.html';"); // redirect back to registration
+				out.println("</script>");
 			}
-			c.close();
-
 		} catch (Exception e) {
 			out.println(e);
 		}
